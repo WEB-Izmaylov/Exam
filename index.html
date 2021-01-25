@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" ng-app="myModule">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="box">
+    <div ng-controller="itemController as iCon" class="list">
+      <div class="header">Каталог автомобілів</div>
+      <div ng-if="iCon.carItems.length > 0">
+        <div ng-repeat="item in iCon.carItems" ng-show="item.displayed" ng-if="item.present" class="item">
+          Наявно: К-сть: {{item.quantity}} Марка: {{item.mark}}
+          <button ng-click="iCon.hideCarItem($index)" class="button button-position">Приховати</button>
+          <button ng-click="iCon.deleteCarItem($index)" class="button button-position">Видалити</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
